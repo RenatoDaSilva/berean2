@@ -27,6 +27,7 @@ module Fae
       [
         item('Churches', path: admin_churches_path),
         item('Members', path: admin_members_path),
+        item('Suppliers', path: admin_suppliers_path),
         # scaffold inject marker
       ]
     end
