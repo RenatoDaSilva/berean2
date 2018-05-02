@@ -10,10 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430024552) do
+ActiveRecord::Schema.define(version: 20180502002114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "church_id"
+    t.string   "code"
+    t.string   "name"
+    t.string   "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["church_id"], name: "index_accounts_on_church_id", using: :btree
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.integer  "church_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["church_id"], name: "index_campaigns_on_church_id", using: :btree
+  end
+
+  create_table "churches", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "observations"
+    t.string   "phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer  "church_id"
+    t.integer  "account_id"
+    t.integer  "position"
+    t.date     "date"
+    t.string   "kind"
+    t.decimal  "value"
+    t.string   "document"
+    t.integer  "member_id"
+    t.integer  "supplier_id"
+    t.date     "written_off_in"
+    t.string   "details"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["account_id"], name: "index_entries_on_account_id", using: :btree
+    t.index ["church_id"], name: "index_entries_on_church_id", using: :btree
+    t.index ["member_id"], name: "index_entries_on_member_id", using: :btree
+    t.index ["supplier_id"], name: "index_entries_on_supplier_id", using: :btree
+  end
 
   create_table "fae_changes", force: :cascade do |t|
     t.integer  "changeable_id"
@@ -163,4 +211,49 @@ ActiveRecord::Schema.define(version: 20180430024552) do
     t.index ["unlock_token"], name: "index_fae_users_on_unlock_token", unique: true, using: :btree
   end
 
+  create_table "members", force: :cascade do |t|
+    t.integer  "church_id"
+    t.string   "name"
+    t.string   "email"
+    t.text     "observations"
+    t.string   "phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["church_id"], name: "index_members_on_church_id", using: :btree
+  end
+
+  create_table "recurrings", force: :cascade do |t|
+    t.integer  "church_id"
+    t.string   "account"
+    t.string   "references"
+    t.string   "name"
+    t.decimal  "value"
+    t.integer  "maturity_day"
+    t.date     "expires_on"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["church_id"], name: "index_recurrings_on_church_id", using: :btree
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.integer  "church_id"
+    t.string   "name"
+    t.string   "cnpjcpf"
+    t.text     "observations"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["church_id"], name: "index_suppliers_on_church_id", using: :btree
+  end
+
+  add_foreign_key "accounts", "churches"
+  add_foreign_key "campaigns", "churches"
+  add_foreign_key "entries", "accounts"
+  add_foreign_key "entries", "churches"
+  add_foreign_key "entries", "members"
+  add_foreign_key "entries", "suppliers"
+  add_foreign_key "members", "churches"
+  add_foreign_key "recurrings", "churches"
+  add_foreign_key "suppliers", "churches"
 end
