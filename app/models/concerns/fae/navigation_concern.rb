@@ -30,6 +30,7 @@ module Fae
         item('Suppliers', path: admin_suppliers_path),
         item('Accounts', path: admin_accounts_path),
         item('Recurrings', path: admin_recurrings_path),
+        item('Entries', path: admin_entries_path),
         # scaffold inject marker
       ]
     end
