@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  church: one
+  name: MyString
+  cnpjcpf: MyString
+  observations: MyText
+  email: MyString
+  phone: MyString
+
+two:
+  church: two
+  name: MyString
+  cnpjcpf: MyString
+  observations: MyText
+  email: MyString
+  phone: MyString

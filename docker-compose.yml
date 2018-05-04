@@ -22,21 +22,23 @@ services:
     build: .
     command: bash start_jobs
     volumes:
-      - '.:/petadmin'
+      - '.:/berean'
     volumes_from:
       - box
-
 
   app:
     depends_on:
       - 'postgres'
       - 'redis'
-    build: .
+    build:
+      context: .
+      args:
+        - user=${USER}
     command: bash start
     ports:
       - '3000:3000'
     volumes:
-      - '.:/petadmin'
+      - '.:/berean'
     volumes_from:
     - box
 

@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis'
 gem 'sidekiq'
 gem 'fae-rails'
+gem 'slim'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
