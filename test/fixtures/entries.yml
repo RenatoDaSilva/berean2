@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  church: one
+  account: one
+  position: 1
+  date: 2018-05-02
+  kind: MyString
+  value: 9.99
+  document: MyString
+  member: one
+  supplier: one
+  written_off_in: 2018-05-02
+  details: MyString
+
+two:
+  church: two
+  account: two
+  position: 1
+  date: 2018-05-02
+  kind: MyString
+  value: 9.99
+  document: MyString
+  member: two
+  supplier: two
+  written_off_in: 2018-05-02
+  details: MyString

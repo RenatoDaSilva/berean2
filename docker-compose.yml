@@ -22,21 +22,23 @@ services:
     build: .
     command: bash start_jobs
     volumes:
-      - '.:/petadmin'
+      - '.:/berean'
     volumes_from:
       - box
-
 
   app:
     depends_on:
       - 'postgres'
       - 'redis'
-    build: .
-    command: bash start.sh
+    build:
+      context: .
+      args:
+        - user=${USER}
+    command: bash start
     ports:
       - '3000:3000'
     volumes:
-      - '.:/petadmin'
+      - '.:/berean'
     volumes_from:
     - box
 
@@ -46,10 +48,10 @@ services:
       - /box
 
   mailcatcher:
-    image: yappabe/mailcatcher
+    image: tophfr/mailcatcher
     ports:
-      - 1025:1025
-      - 1080:1080
+      - 1025:25
+      - 1080:80
 
 volumes:
   redis:

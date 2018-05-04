@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  church: one
+  account: MyString
+  references: MyString
+  name: MyString
+  value: 9.99
+  maturity_day: 1
+  expires_on: 2018-05-02
+
+two:
+  church: two
+  account: MyString
+  references: MyString
+  name: MyString
+  value: 9.99
+  maturity_day: 1
+  expires_on: 2018-05-02

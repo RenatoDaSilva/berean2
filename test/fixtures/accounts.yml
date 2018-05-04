@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  church: one
+  code: MyString
+  name: MyString
+  kind: MyString
+
+two:
+  church: two
+  code: MyString
+  name: MyString
+  kind: MyString
