@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180430024552) do
-=======
 ActiveRecord::Schema.define(version: 20180502002114) do
->>>>>>> d89a9f238373141d0a46d518d9cb8275f0f5b8af
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "accounts", force: :cascade do |t|
     t.integer  "church_id"
     t.string   "code"
@@ -69,7 +63,6 @@ ActiveRecord::Schema.define(version: 20180502002114) do
     t.index ["supplier_id"], name: "index_entries_on_supplier_id", using: :btree
   end
 
->>>>>>> d89a9f238373141d0a46d518d9cb8275f0f5b8af
   create_table "fae_changes", force: :cascade do |t|
     t.integer  "changeable_id"
     t.string   "changeable_type"
@@ -218,8 +211,6 @@ ActiveRecord::Schema.define(version: 20180502002114) do
     t.index ["unlock_token"], name: "index_fae_users_on_unlock_token", unique: true, using: :btree
   end
 
-<<<<<<< HEAD
-=======
   create_table "members", force: :cascade do |t|
     t.integer  "church_id"
     t.string   "name"
@@ -265,5 +256,4 @@ ActiveRecord::Schema.define(version: 20180502002114) do
   add_foreign_key "members", "churches"
   add_foreign_key "recurrings", "churches"
   add_foreign_key "suppliers", "churches"
->>>>>>> d89a9f238373141d0a46d518d9cb8275f0f5b8af
 end

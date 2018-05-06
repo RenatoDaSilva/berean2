@@ -25,8 +25,6 @@ module Fae
 
     def structure
       [
-<<<<<<< HEAD
-=======
         item('Churches', path: admin_churches_path),
         item('Members', path: admin_members_path),
         item('Suppliers', path: admin_suppliers_path),
@@ -34,8 +32,6 @@ module Fae
         item('Recurrings', path: admin_recurrings_path),
         item('Entries', path: admin_entries_path),
         item('Campaigns', path: admin_campaigns_path),
->>>>>>> d89a9f238373141d0a46d518d9cb8275f0f5b8af
-        # scaffold inject marker
       ]
     end
 

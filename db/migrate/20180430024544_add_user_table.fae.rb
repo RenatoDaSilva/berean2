@@ -37,6 +37,7 @@ class AddUserTable < ActiveRecord::Migration
       t.integer :role_id
       t.boolean :active
       t.string :language
+      t.integer :church_id
 
       t.timestamps
     end

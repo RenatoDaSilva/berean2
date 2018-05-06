@@ -13,9 +13,9 @@ COPY Gemfile ./
 
 ENV BUNDLE_PATH /box
 
-ARG user
-RUN adduser --disabled-password $user
-RUN echo "$user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-USER $user
+#ARG user
+#RUN adduser --disabled-password $user
+#RUN echo "$user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+#USER $user
 
 COPY . .

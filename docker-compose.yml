@@ -30,10 +30,10 @@ services:
     depends_on:
       - 'postgres'
       - 'redis'
-    build:
-      context: .
-      args:
-        - user=${USER}
+    build: .
+#      context: .
+#      args:
+#        - user=${USER}
     command: bash start
     ports:
       - '3000:3000'
